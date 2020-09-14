@@ -1,6 +1,6 @@
 // ------------------------------------------------------------------------------------------------
 // <copyright file="InheritDocumentationComponent.cs" company="Microsoft">
-//      Copyright © Microsoft Corporation.
+//      Copyright Â© Microsoft Corporation.
 //      This source file is subject to the Microsoft Permissive License.
 //      See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 //      All other rights reserved.
@@ -129,7 +129,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                     "define the indexes from which to obtain comments and reflection information");
 
             // Get the comments info
-            string sourceName = copyNode.GetAttribute("name", string.Empty);
+            string sourceName = copyNode.GetAttribute("name", String.Empty);
 
             if(String.IsNullOrEmpty(sourceName))
                 this.ParentBuildComponent.WriteMessage(MessageLevel.Error, "Each copy command must specify " +
@@ -193,9 +193,9 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                 inheritDocNodeNavigator.MoveTo(this.sourceDocument.CreateNavigator().SelectSingleNode(inheritDocExpression));
 
                 // Inherit from the specified API [id=cref].
-                string cref = inheritDocNodeNavigator.GetAttribute("cref", string.Empty);
+                string cref = inheritDocNodeNavigator.GetAttribute("cref", String.Empty);
 
-                if(!string.IsNullOrEmpty(cref))
+                if(!String.IsNullOrEmpty(cref))
                 {
                     XPathNavigator contentNodeNavigator = this.commentsIndex[cref];
 
@@ -248,7 +248,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                             string typeApi = (string)reflectionNodeNavigator.Evaluate(containerTypeExpression);
 
                             // no container type api was found, so delete <inheritdoc /> node.
-                            if(string.IsNullOrEmpty(typeApi))
+                            if(String.IsNullOrEmpty(typeApi))
                             {
                                 this.DeleteNode(inheritDocNodeNavigator, key);
                                 continue;
@@ -267,7 +267,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
                             foreach(XPathNavigator containerNavigator in containerIterator)
                             {
-                                string constructorId = string.Format(CultureInfo.InvariantCulture, "M:{0}.{1}", containerNavigator.Value.Substring(2), name.Replace('.', '#'));
+                                string constructorId = String.Format(CultureInfo.InvariantCulture, "M:{0}.{1}", containerNavigator.Value.Substring(2), name.Replace('.', '#'));
                                 XPathNavigator contentNodeNavigator = this.commentsIndex[constructorId];
 
                                 if(contentNodeNavigator == null)
@@ -312,7 +312,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
         private void UpdateNode(string key, XPathNavigator inheritDocNodeNavigator, XPathNavigator contentNodeNavigator)
         {
             // retrieve the selection filter if specified.
-            string selectValue = inheritDocNodeNavigator.GetAttribute("select", string.Empty);
+            string selectValue = inheritDocNodeNavigator.GetAttribute("select", String.Empty);
 
             if(!String.IsNullOrWhiteSpace(selectValue))
             {
@@ -320,7 +320,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                     "attribute has been deprecated.  Use the equivalent 'path' attribute instead.");
             }
             else
-                selectValue = inheritDocNodeNavigator.GetAttribute("path", string.Empty);
+                selectValue = inheritDocNodeNavigator.GetAttribute("path", String.Empty);
 
             if(!String.IsNullOrWhiteSpace(selectValue))
                 sourceExpression = XPathExpression.Compile(selectValue);

@@ -194,7 +194,7 @@ namespace Microsoft.Ddue.Tools
 
                     current = (string)navigator.Evaluate(apiNamespaceExpression);
 
-                    if(string.IsNullOrEmpty(current))
+                    if(String.IsNullOrEmpty(current))
                         current = (string)navigator.Evaluate(namespaceIdExpression);
 
                     writer = dictionary2[current];

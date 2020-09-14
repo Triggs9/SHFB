@@ -1,43 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D3B06405-3435-4329-9233-2DF1BF5028AA}</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SandcastleBuilder.WPF</RootNamespace>
     <AssemblyName>SandcastleBuilder.WPF</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>binGUI\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;STANDALONEGUI</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>binGUI\Debug\SandcastleBuilder.WPF.xml</DocumentationFile>
     <CodeAnalysisRuleSet>..\SandcastleTools.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>binGUI\Release\</OutputPath>
     <DefineConstants>TRACE;STANDALONEGUI</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>binGUI\Release\SandcastleBuilder.WPF.xml</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -46,33 +24,10 @@
     <AssemblyOriginatorKeyFile>..\SandcastleTools.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetProjects.Wpf.Extended.Toolkit, Version=4.6.82.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetProjects.Extended.Wpf.Toolkit.4.6.82\lib\net40\DotNetProjects.Wpf.Extended.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Build.15.1.548\lib\net46\Microsoft.Build.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Build.Framework.15.1.548\lib\net46\Microsoft.Build.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Setup.Configuration.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.1.16.30\lib\net35\Microsoft.VisualStudio.Setup.Configuration.Interop.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="PresentationFramework.Luna" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -82,147 +37,101 @@
     <Compile Include="..\SandcastleBuilderUtils\Properties\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="Commands\EditorCommands.cs" />
-    <Compile Include="Commands\ProjectCommands.cs" />
-    <Compile Include="ControlExtensions.cs" />
-    <Compile Include="Controls\DropDownButton.cs" />
-    <Compile Include="Controls\SplitButton.cs" />
-    <Compile Include="EntityReference.cs" />
-    <Compile Include="EntityType.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Maml\ElementProperties.cs" />
-    <Compile Include="Maml\GlossaryEntry.cs" />
-    <Compile Include="Maml\MamlToFlowDocumentConverter.Core.cs" />
-    <Compile Include="Maml\MamlToFlowDocumentConverter.Handlers.cs" />
-    <Compile Include="Maml\MamlToFlowDocumentConverter.Static.cs" />
-    <Compile Include="Maml\NamedStyle.cs" />
-    <Compile Include="PropertyPages\ApiFilterEditorDlg.xaml.cs">
+    <Compile Update="PropertyPages\ApiFilterEditorDlg.xaml.cs">
       <DependentUpon>ApiFilterEditorDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\ApiNodeInfo.cs" />
-    <Compile Include="PropertyPages\ApiVisibility.cs" />
-    <Compile Include="PropertyPages\ApplyChangesEventArgs.cs" />
-    <Compile Include="PropertyPages\BuildEventEditorDlg.xaml.cs">
+    <Compile Update="PropertyPages\BuildEventEditorDlg.xaml.cs">
       <DependentUpon>BuildEventEditorDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\BuildEventPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\BuildEventPropertiesPageContent.xaml.cs">
       <DependentUpon>BuildEventPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\BuildPropertiesNeededEventArgs.cs" />
-    <Compile Include="PropertyPages\BuildPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\BuildPropertiesPageContent.xaml.cs">
       <DependentUpon>BuildPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\ComponentCache.cs" />
-    <Compile Include="PropertyPages\ComponentPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\ComponentPropertiesPageContent.xaml.cs">
       <DependentUpon>ComponentPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\ComponentSettingsNeededEventArgs.cs" />
-    <Compile Include="PropertyPages\FilePathUserControl.xaml.cs">
+    <Compile Update="PropertyPages\FilePathUserControl.xaml.cs">
       <DependentUpon>FilePathUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\FolderPathUserControl.xaml.cs">
+    <Compile Update="PropertyPages\FolderPathUserControl.xaml.cs">
       <DependentUpon>FolderPathUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\GeneralOptionsControl.xaml.cs">
+    <Compile Update="PropertyPages\GeneralOptionsControl.xaml.cs">
       <DependentUpon>GeneralOptionsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\Help1WebsitePropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\Help1WebsitePropertiesPageContent.xaml.cs">
       <DependentUpon>Help1WebsitePropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\HelpFilePropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\HelpFilePropertiesPageContent.xaml.cs">
       <DependentUpon>HelpFilePropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\LargeTextBoxEditor.cs" />
-    <Compile Include="PropertyPages\MissingTagPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\MissingTagPropertiesPageContent.xaml.cs">
       <DependentUpon>MissingTagPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\MSHelpViewerPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\MSHelpViewerPropertiesPageContent.xaml.cs">
       <DependentUpon>MSHelpViewerPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\NamespaceSummaryItemEditorDlg.xaml.cs">
+    <Compile Update="PropertyPages\NamespaceSummaryItemEditorDlg.xaml.cs">
       <DependentUpon>NamespaceSummaryItemEditorDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\PathPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\PathPropertiesPageContent.xaml.cs">
       <DependentUpon>PathPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\PlugInPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\PlugInPropertiesPageContent.xaml.cs">
       <DependentUpon>PlugInPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\PresentationStyleSettingsNeededEventArgs.cs" />
-    <Compile Include="PropertyPages\PropertyPageBinding.cs" />
-    <Compile Include="PropertyPages\SummaryPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\SummaryPropertiesPageContent.xaml.cs">
       <DependentUpon>SummaryPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\TransformArgumentsPageContent.xaml.cs">
+    <Compile Update="PropertyPages\TransformArgumentsPageContent.xaml.cs">
       <DependentUpon>TransformArgumentsPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\UserDefinedPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\UserDefinedPropertiesPageContent.xaml.cs">
       <DependentUpon>UserDefinedPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropertyPages\UserDefinedProperty.cs" />
-    <Compile Include="PropertyPages\VisibilityPropertiesPageContent.xaml.cs">
+    <Compile Update="PropertyPages\VisibilityPropertiesPageContent.xaml.cs">
       <DependentUpon>VisibilityPropertiesPageContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SharedResources.cs" />
-    <Compile Include="Theme\ThemeColorId.cs" />
-    <Compile Include="Theme\ThemeColors.cs" />
-    <Compile Include="UI\LaunchMSHelpViewerDlg.xaml.cs">
+    <Compile Update="UI\LaunchMSHelpViewerDlg.xaml.cs">
       <DependentUpon>LaunchMSHelpViewerDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SelectProjectsDlg.xaml.cs">
+    <Compile Update="UI\SelectProjectsDlg.xaml.cs">
       <DependentUpon>SelectProjectsDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\BuildLogViewerControl.xaml.cs">
+    <Compile Update="UserControls\BuildLogViewerControl.xaml.cs">
       <DependentUpon>BuildLogViewerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ContentLayoutEditorControl.xaml.cs">
+    <Compile Update="UserControls\ContentLayoutEditorControl.xaml.cs">
       <DependentUpon>ContentLayoutEditorControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\EntityReferencesControl.xaml.cs">
+    <Compile Update="UserControls\EntityReferencesControl.xaml.cs">
       <DependentUpon>EntityReferencesControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FileContentNeededEventArgs.cs" />
-    <Compile Include="UserControls\ResourceItemEditorControl.xaml.cs">
-      <DependentUpon>ResourceItemEditorControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserControls\SiteMapEditorControl.xaml.cs">
-      <DependentUpon>SiteMapEditorControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserControls\SpinnerControl.xaml.cs">
+    <Compile Update="UserControls\SpinnerControl.xaml.cs">
       <DependentUpon>SpinnerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\TokenEditorControl.xaml.cs">
-      <DependentUpon>TokenEditorControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserControls\TopicContentNeededEventArgs.cs" />
-    <Compile Include="UserControls\TopicPreviewerControl.xaml.cs">
+    <Compile Update="UserControls\TopicPreviewerControl.xaml.cs">
       <DependentUpon>TopicPreviewerControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\TreeViewItemBehavior.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Update="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
+    <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
@@ -359,18 +268,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeColorizer\ColorizerLibrary\ColorizerLibrary.csproj">
-      <Project>{72331A21-C452-4BE4-BFDB-B8029A6BC1C0}</Project>
-      <Name>ColorizerLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SandcastleBuilderUtils\SandcastleBuilderUtils.csproj">
-      <Project>{330DADF7-3AB1-49A0-B3C6-A69D2C4F06A6}</Project>
-      <Name>SandcastleBuilderUtils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj">
-      <Project>{399E78F8-4954-409E-991A-37DA9D0579CC}</Project>
-      <Name>Sandcastle.Core</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\CodeColorizer\ColorizerLibrary\ColorizerLibrary.csproj" />
+    <ProjectReference Include="..\SandcastleBuilderUtils\SandcastleBuilderUtils.csproj" />
+    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AddItem.png" />
@@ -587,12 +487,34 @@
   <ItemGroup>
     <Resource Include="Resources\SelectProjects.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="DotNetProjects.Extended.Wpf.Toolkit" Version="4.6.82" />
+    <PackageReference Include="Microsoft.Build" Version="15.1.548" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.548" />
+    <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="14.3.25407" />
+    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="7.10.6070" />
+    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="1.16.30" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.14.0" Version="14.3.25407" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" Version="10.0.30319" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.11.0" Version="11.0.50727" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.12.0" Version="12.0.21003" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.14.0" Version="14.3.25407" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Interop" Version="7.10.6071" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.8.0" Version="8.0.50727" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.9.0" Version="9.0.30729" />
+    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="7.10.6070" />
+    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop.8.0" Version="8.0.50727" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="14.1.111" />
+    <PackageReference Include="Microsoft.VisualStudio.Utilities" Version="14.3.25407" />
+    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="14.1.111" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.5.24" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Theme\TeamFoundationColors.cs" />
+  </ItemGroup>
 </Project>

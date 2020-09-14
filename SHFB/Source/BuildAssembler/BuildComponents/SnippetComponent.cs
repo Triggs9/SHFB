@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -135,9 +135,9 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
             foreach(XPathNavigator exampleNode in examplesNode)
             {
-                string rootDirectory = exampleNode.GetAttribute("directory", string.Empty);
+                string rootDirectory = exampleNode.GetAttribute("directory", String.Empty);
 
-                if(string.IsNullOrEmpty(rootDirectory))
+                if(String.IsNullOrEmpty(rootDirectory))
                     WriteMessage(MessageLevel.Error, "Each examples element must have a directory attribute specifying a directory containing parsnip samples.");
 
                 rootDirectory = Environment.ExpandEnvironmentVariables(rootDirectory);
@@ -156,9 +156,9 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
             foreach(XPathNavigator node in approvedSnippetsNode)
             {
-                string approvalLogFile = node.GetAttribute("file", string.Empty);
+                string approvalLogFile = node.GetAttribute("file", String.Empty);
 
-                if(string.IsNullOrEmpty(approvalLogFile))
+                if(String.IsNullOrEmpty(approvalLogFile))
                     WriteMessage(MessageLevel.Error, "The approvalLog node must have a 'file' attribute specifying the path to a snippet approval log.");
 
                 approvalLogFile = Environment.ExpandEnvironmentVariables(approvalLogFile);
@@ -174,9 +174,9 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             XPathNodeIterator excludedUnitNodes = configuration.Select("excludedUnits/unitFolder");
             foreach(XPathNavigator unitFolder in excludedUnitNodes)
             {
-                string folderName = unitFolder.GetAttribute("name", string.Empty);
+                string folderName = unitFolder.GetAttribute("name", String.Empty);
 
-                if(string.IsNullOrEmpty(folderName))
+                if(String.IsNullOrEmpty(folderName))
                     WriteMessage(MessageLevel.Error, "Each excludedUnits/unitFolder node must have a 'name' attribute specifying the name of a folder name to exclude.");
 
                 folderName = Environment.ExpandEnvironmentVariables(folderName);
@@ -190,22 +190,22 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             foreach(XPathNavigator languageNode in languageNodes)
             {
                 // read the @languageId, @unit, and @extension attributes
-                string languageId = languageNode.GetAttribute("languageId", string.Empty);
-                if(string.IsNullOrEmpty(languageId))
+                string languageId = languageNode.GetAttribute("languageId", String.Empty);
+                if(String.IsNullOrEmpty(languageId))
                     WriteMessage(MessageLevel.Error, "Each language node must specify an @languageId attribute.");
 
-                string unit = languageNode.GetAttribute("unit", string.Empty);
+                string unit = languageNode.GetAttribute("unit", String.Empty);
 
                 // if both @languageId and @unit are specified, add this language to the language map
-                if(!string.IsNullOrEmpty(unit))
+                if(!String.IsNullOrEmpty(unit))
                     languageMap.Add(unit.ToLowerInvariant(), languageId);
 
                 // add languageId to the languageList for purpose of ordering snippets in the output
                 if(!languageList.Contains(languageId))
                     languageList.Add(languageId.ToLowerInvariant());
 
-                string extension = languageNode.GetAttribute("extension", string.Empty);
-                if(!string.IsNullOrEmpty(extension))
+                string extension = languageNode.GetAttribute("extension", String.Empty);
+                if(!String.IsNullOrEmpty(extension))
                 {
                     if(!extension.Contains("."))
                     {
@@ -286,7 +286,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                         continue;
 
                     // look up the snippets example path
-                    string examplePath = string.Empty;
+                    string examplePath = String.Empty;
                     if(!this.exampleIndex.TryGetValue(identifier.ExampleId, out examplePath))
                     {
                         base.WriteMessage(key, MessageLevel.Warn, "Snippet with identifier '{0}' was not found. " +
@@ -479,8 +479,8 @@ namespace Microsoft.Ddue.Tools.BuildComponent
         /// <param name="file">approved snippets log file</param>
         private void ParseApprovalLogFiles(string file)
         {
-            string sampleName = string.Empty;
-            string unitName = string.Empty;
+            string sampleName = String.Empty;
+            string unitName = String.Empty;
             List<string> rejectedUnits = null;
 
             XmlReader reader = XmlReader.Create(file);
@@ -1038,7 +1038,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
         /// <param name="exampleName">The name of the example that contains this file</param>
         private void ParseFile(FileInfo file, string language, string exampleName)
         {
-            string snippetLanguage = string.Empty;
+            string snippetLanguage = String.Empty;
 
             // The snippet language is the name (or id mapping) of the Unit folder
             // unless the file extension is .xaml

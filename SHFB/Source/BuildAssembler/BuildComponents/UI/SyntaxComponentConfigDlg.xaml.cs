@@ -27,11 +27,9 @@ using System.ComponentModel;
 using System.ComponentModel.Composition.Hosting;
 using System.Globalization;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
 using System.Xml.Linq;
-
+using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Microsoft.Ddue.Tools.BuildComponent;
 
 using Sandcastle.Core;

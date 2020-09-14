@@ -271,7 +271,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                 value = data.GetAttribute(ConfigurationAttr.SelfBranded, String.Empty);
 
                 if(!String.IsNullOrEmpty(value))
-                    _selfBranded = bool.Parse(value);
+                    _selfBranded = Boolean.Parse(value);
 
                 value = data.GetAttribute(ConfigurationAttr.TopicVersion, String.Empty);
 

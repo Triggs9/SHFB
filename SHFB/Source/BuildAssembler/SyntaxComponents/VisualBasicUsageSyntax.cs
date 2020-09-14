@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -719,8 +719,8 @@ namespace Microsoft.Ddue.Tools
             if(getter)
             {
                 string getVisibility = (string)reflection.Evaluate(apiGetVisibilityExpression);
-                if(string.IsNullOrEmpty(getVisibility) || (getVisibility != "assembly" &&
-                    getVisibility != "private" && getVisibility != "family and assembly"))
+                if(String.IsNullOrEmpty(getVisibility) || (getVisibility != "assembly" &&
+                                                           getVisibility != "private" && getVisibility != "family and assembly"))
                 {
                     writer.WriteLine();
                     writer.WriteParameter("value");
@@ -735,8 +735,8 @@ namespace Microsoft.Ddue.Tools
             if(setter)
             {
                 string setVisibility = (string)reflection.Evaluate(apiSetVisibilityExpression);
-                if(string.IsNullOrEmpty(setVisibility) || (setVisibility != "assembly" &&
-                    setVisibility != "private" && setVisibility != "family and assembly"))
+                if(String.IsNullOrEmpty(setVisibility) || (setVisibility != "assembly" &&
+                                                           setVisibility != "private" && setVisibility != "family and assembly"))
                 {
                     writer.WriteLine();
                     WriteMemberName(reflection, writer);

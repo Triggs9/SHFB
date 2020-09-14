@@ -30,12 +30,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
 using System.Xml.Linq;
-using Microsoft.Win32;
+using Avalonia.Controls;
 using Sandcastle.Core;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace SandcastleBuilder.Components.UI
 {
@@ -224,13 +222,13 @@ namespace SandcastleBuilder.Components.UI
         /// <param name="e">The event arguments</param>
         private void btnSelectFolder_Click(object sender, RoutedEventArgs e)
         {
-            using(System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog())
+            using(FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select the base source code folder";
                 dlg.SelectedPath = Directory.GetCurrentDirectory();
 
                 // If selected, set the new folder
-                if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if(dlg.ShowDialog() == DialogResult.OK)
                     txtBasePath.Text = dlg.SelectedPath + @"\";
             }
         }

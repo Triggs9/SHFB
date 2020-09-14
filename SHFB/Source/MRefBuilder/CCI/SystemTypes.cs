@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -436,7 +436,7 @@ namespace System.Compiler
                 case ElementType.Object:
                 case ElementType.String:
                 case ElementType.Class:
-                    if (name.Length > 1 && name[0] == 'I' && char.IsUpper(name[1]))
+                    if (name.Length > 1 && name[0] == 'I' && System.Char.IsUpper(name[1]))
                         result = new Interface();
                     else if (name == "MulticastDelegate" || name == "Delegate")
                         result = new Class();

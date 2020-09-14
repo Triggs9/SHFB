@@ -24,22 +24,27 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Navigation;
-using System.Windows.Forms;
 using System.Xml.Linq;
-
+using Avalonia.Controls;
+using Avalonia.Input;
 using Microsoft.Ddue.Tools.BuildComponent;
+using RoutedEventArgs = Avalonia.Interactivity.RoutedEventArgs;
 
 namespace Microsoft.Ddue.Tools.UI
 {
     /// <summary>
     /// This form is used to configure the settings for the <see cref="IntelliSenseComponent"/>
     /// </summary>
-    public partial class IntelliSenseConfigDlg : Window
+    public partial class IntelliSenseConfigDlg : Avalonia.Controls.Window
     {
         #region Private data members
         //=====================================================================
 
         private XElement config;
+
+        private TextBox txtNamespacesFile;
+        private TextBox txtFolder;
+        private CheckBox chkIncludeNamespaces;
 
         #endregion
 
@@ -70,16 +75,24 @@ namespace Microsoft.Ddue.Tools.UI
 
             if(settings != null)
             {
-                chkIncludeNamespaces.IsChecked = ((bool?)settings.Attribute("includeNamespaces") ?? false);
-                txtNamespacesFile.Text = (string)settings.Attribute("namespacesFile");
-                txtFolder.Text = (string)settings.Attribute("folder");
+                FocusManager.Instance.Focus(this);
+                //chkIncludeNamespaces.IsChecked = ((bool?)settings.Attribute("includeNamespaces") ?? false);
+                
+                this.txtFolder = this.FindControl<TextBox>("txtFolder");
+                this.txtFolder.Text = (string)settings.Attribute("folder");
+            
+                this.txtNamespacesFile = this.FindControl<TextBox>("txtNamespacesFile");
+                this.txtNamespacesFile.Text = (string)settings.Attribute("namespacesFile");
+                
+                this.chkIncludeNamespaces = this.FindControl<CheckBox>("chkIncludeNamespaces");
+                this.chkIncludeNamespaces.IsChecked = ((bool?)settings.Attribute("includeNamespaces") ?? false);
 
                 int boundedCapacity = ((int?)settings.Attribute("boundedCapacity") ?? -1);
 
                 if(boundedCapacity < 0 || boundedCapacity > 9999)
                     boundedCapacity = 100;
 
-                udcBoundedCapacity.Value = boundedCapacity;
+                this.udcBoundedCapacity.Value = boundedCapacity;
             }
         }
         #endregion
@@ -94,20 +107,27 @@ namespace Microsoft.Ddue.Tools.UI
         /// <param name="e">The event arguments</param>
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            txtFolder.Text = txtFolder.Text.Trim();
-            txtNamespacesFile.Text = txtNamespacesFile.Text.Trim();
-
+            //txtFolder.Text = txtFolder.Text.Trim();
+            //txtNamespacesFile.Text = txtNamespacesFile.Text.Trim();
+            
+            this.txtFolder = this.FindControl<TextBox>("txtFolder");
+            this.txtFolder.Text = txtFolder.Text.Trim();
+            
+            this.txtNamespacesFile = this.FindControl<TextBox>("txtNamespacesFile");
+            this.txtNamespacesFile.Text = txtNamespacesFile.Text.Trim();
+            
+            this.chkIncludeNamespaces = this.FindControl<CheckBox>("chkIncludeNamespaces");
+            
             // Store the changes
             config.RemoveNodes();
 
             config.Add(new XElement("output",
-                new XAttribute("includeNamespaces", chkIncludeNamespaces.IsChecked.Value),
+                new XAttribute("includeNamespaces", this.chkIncludeNamespaces.IsChecked.Value),
                 new XAttribute("namespacesFile", txtNamespacesFile.Text),
                 new XAttribute("folder", txtFolder.Text),
                 new XAttribute("boundedCapacity", udcBoundedCapacity.Value)));
 
-            this.DialogResult = true;
-            this.Close();
+            this.Close(true);
         }
 
         /// <summary>
@@ -115,17 +135,29 @@ namespace Microsoft.Ddue.Tools.UI
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void btnSelectFolder_Click(object sender, RoutedEventArgs e)
+        private async void btnSelectFolder_Click(object sender, RoutedEventArgs routedEventArgs)
         {
+            OpenFolderDialog openFolderDialog = new OpenFolderDialog();
+            openFolderDialog.Title = "Select the IntelliSense output folder";
+            openFolderDialog.Directory = Directory.GetCurrentDirectory();
+
+            string result = await openFolderDialog.ShowAsync(this);
+            if(result == "OK" || result == "ok" || result == "Ok")
+            {
+                TextBox txtFolder = this.FindControl<TextBox>("txtFolder");
+                txtFolder.Text = openFolderDialog.Directory + @"\";
+            }
+            /*
             using(FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select the IntelliSense output folder";
                 dlg.SelectedPath = Directory.GetCurrentDirectory();
 
                 // If selected, set the new folder
-                if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if(dlg.ShowDialog() == DialogResult.OK)
                     txtFolder.Text = dlg.SelectedPath + @"\";
             }
+            */
         }
 
         /// <summary>
@@ -133,11 +165,11 @@ namespace Microsoft.Ddue.Tools.UI
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void lnkProjectSite_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void lnkProjectSite_RequestNavigate(object sender, RequestNavigateEventArgs requestNavigateEventArgs)
         {
             try
             {
-                System.Diagnostics.Process.Start(e.Uri.ToString());
+                System.Diagnostics.Process.Start(requestNavigateEventArgs.Uri.ToString());
             }
             catch(Exception ex)
             {

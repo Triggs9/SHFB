@@ -102,8 +102,8 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             /// <inheritdoc />
             public override string ConfigureComponent(string currentConfiguration, CompositionContainer container)
             {
-                var dlg = new IntelliSenseConfigDlg(currentConfiguration);
-
+                IntelliSenseConfigDlg dlg = new IntelliSenseConfigDlg(currentConfiguration);
+                
                 if(dlg.ShowModalDialog() ?? false)
                     currentConfiguration = dlg.Configuration;
 

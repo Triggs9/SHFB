@@ -184,7 +184,7 @@ namespace Microsoft.Ddue.Tools.Commands
                         string attrValue = target.GetAttribute(String.Format(CultureInfo.InvariantCulture,
                             "{0}_{1}", sourceName, source.Name), String.Empty);
 
-                        if(string.IsNullOrEmpty(attrValue))
+                        if(String.IsNullOrEmpty(attrValue))
                             attributes.WriteAttributeString(String.Format(CultureInfo.InvariantCulture,
                                 "{0}_{1}", sourceName, source.Name), source.Value);
 

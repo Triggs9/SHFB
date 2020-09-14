@@ -213,7 +213,7 @@ namespace HtmlToMamlConversion
 
             if(bodyExpr != null)
                 FileParser.BodyExtractExpression = bodyExpr.GetAttribute(
-                    "expression", string.Empty);
+                    "expression", String.Empty);
 
             // Add the tags we will handle internally
             conversionRules.Add("a", null);

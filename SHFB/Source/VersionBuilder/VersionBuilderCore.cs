@@ -108,7 +108,7 @@ namespace Microsoft.Ddue.Tools
                 string group = (string)navigator2.Evaluate(expr);
                 string attribute = navigator2.GetAttribute("name", String.Empty);
 
-                if(string.IsNullOrEmpty(attribute))
+                if(String.IsNullOrEmpty(attribute))
                     ConsoleApplication.WriteMessage(LogLevel.Error, "Every version element must have a name attribute.");
 
                 string name = navigator2.GetAttribute("file", String.Empty);

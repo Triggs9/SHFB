@@ -1,38 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{70CFBFC8-F047-4FFD-A999-98CC3EB39BD9}</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sandcastle.PresentationStyles</RootNamespace>
-    <AssemblyName>StandardPresentationStyles</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>..\..\Deploy\PresentationStyles\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisRuleSet>..\SandcastleTools.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>..\..\Deploy\PresentationStyles\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -41,29 +19,12 @@
     <AssemblyOriginatorKeyFile>..\SandcastleTools.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\SandcastleCore\Properties\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Markdown.cs" />
-    <Compile Include="OpenXml.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VisualStudio2010.cs" />
-    <Compile Include="VisualStudio2013.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj">
-      <Project>{399E78F8-4954-409E-991A-37DA9D0579CC}</Project>
-      <Name>Sandcastle.Core</Name>
-      <Private>False</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Colorizer\highlight.js">
@@ -1486,37 +1447,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Markdown\Content\ja-JP\ja-JP.vsspell" />
-    <None Include="Markdown\Content\ru-RU\ru-RU.vsspell" />
-    <None Include="Markdown\Content\zh-CN\zh-CN.vsspell" />
-    <None Include="Markdown\SHFBContent\SHFBContent.vsspell" />
-    <None Include="OpenXml\Content\ja-JP\ja-JP.vsspell" />
-    <None Include="OpenXml\Content\ru-RU\ru-RU.vsspell" />
-    <None Include="OpenXml\Content\zh-CN\zh-CN.vsspell" />
-    <None Include="OpenXml\SHFBContent\SHFBContent.vsspell" />
-    <None Include="Shared\StopWordList\StopWordList.vsspell" />
-    <None Include="StandardPresentationStyles.csproj.vsspell" />
-    <None Include="VS2010\Content\de-DE\de-DE.vsspell" />
-    <None Include="VS2010\Content\ja-JP\ja-JP.vsspell" />
-    <None Include="VS2010\Content\ru-RU\ru-RU.vsspell" />
-    <None Include="VS2010\Content\zh-CN\zh-CN.vsspell" />
-    <None Include="VS2010\SHFBContent\SHFBContent.vsspell" />
-    <None Include="VS2013\Content\de-DE\de-DE.vsspell" />
-    <None Include="VS2013\Content\es-ES\es-ES.vsspell" />
-    <None Include="VS2013\Content\fr-FR\fr-FR.vsspell" />
-    <None Include="VS2013\Content\it-IT\it-IT.vsspell" />
-    <None Include="VS2013\Content\ja-JP\ja-JP.vsspell" />
-    <None Include="VS2013\Content\pt-BR\pt-BR.vsspell" />
-    <None Include="VS2013\Content\ru-RU\ru-RU.vsspell" />
-    <None Include="VS2013\Content\zh-CN\zh-CN.vsspell" />
-    <None Include="VS2013\SHFBContent\SHFBContent.vsspell" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

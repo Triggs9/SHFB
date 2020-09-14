@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -103,9 +103,9 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                 if(!String.IsNullOrEmpty(baseOutputPath))
                     baseOutputPath = Path.GetFullPath(Environment.ExpandEnvironmentVariables(baseOutputPath));
 
-                string outputPathValue = targetsNode.GetAttribute("outputPath", string.Empty);
+                string outputPathValue = targetsNode.GetAttribute("outputPath", String.Empty);
 
-                if(string.IsNullOrEmpty(outputPathValue))
+                if(String.IsNullOrEmpty(outputPathValue))
                     this.WriteMessage(MessageLevel.Error, "Each targets element must have an output attribute " +
                         "specifying a directory in which to place referenced art files.");
 

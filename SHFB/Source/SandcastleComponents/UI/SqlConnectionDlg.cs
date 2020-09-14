@@ -21,7 +21,6 @@
 using System;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 using Sandcastle.Core;
 using SandcastleBuilder.Components.Properties;

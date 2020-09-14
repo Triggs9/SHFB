@@ -23,7 +23,6 @@ using System.ComponentModel.Composition.Hosting;
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Xml.XPath;
 
 using Sandcastle.Core.BuildAssembler;

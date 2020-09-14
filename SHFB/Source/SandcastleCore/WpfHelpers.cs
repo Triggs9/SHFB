@@ -20,9 +20,11 @@
 
 using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interop;
-using System.Windows.Media;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media;
+using Window = Avalonia.Controls.Window;
 
 namespace Sandcastle.Core
 {

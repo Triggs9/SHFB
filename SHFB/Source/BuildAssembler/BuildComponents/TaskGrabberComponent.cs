@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -48,7 +48,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
         private XPathExpression valueQuery = null;
         private XPathExpression keyQuery = null;
 
-        private string xpathFromConfig = string.Empty;
+        private string xpathFromConfig = String.Empty;
 
         private Dictionary<string, List<string>> bKeywordMap = new Dictionary<string, List<string>>();
 
@@ -170,7 +170,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
         }
 
-        private string currentKey = string.Empty;
+        private string currentKey = String.Empty;
 
         /// <inheritdoc />
         public override void Apply(XmlDocument document, string key)
@@ -215,12 +215,12 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
                     // create a 'tasks' node to replace the target
                     XPathNavigator tasksNode = document.CreateElement("tasks").CreateNavigator();
-                    tasksNode.CreateAttribute(string.Empty, "bkeyword", string.Empty, bkeyword);
+                    tasksNode.CreateAttribute(String.Empty, "bkeyword", String.Empty, bkeyword);
                     foreach(string topicId in idList)
                     {
                         //create a task node for this source topic
                         XPathNavigator taskNode = document.CreateElement("task").CreateNavigator();
-                        taskNode.CreateAttribute(string.Empty, "topicId", string.Empty, topicId);
+                        taskNode.CreateAttribute(String.Empty, "topicId", String.Empty, topicId);
 
                         // get the source document for the topic id
                         string filepath;
@@ -322,13 +322,13 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             XPathNodeIterator targetNodes = document.CreateNavigator().Select(topicXPath);
             foreach(XPathNavigator targetNode in targetNodes)
             {
-                string topicId = targetNode.GetAttribute("id", string.Empty);
-                if(string.IsNullOrEmpty(topicId))
+                string topicId = targetNode.GetAttribute("id", String.Empty);
+                if(String.IsNullOrEmpty(topicId))
                     continue;
                 foreach(XPathNavigator keywordNode in targetNode.Select(keywordXPath))
                 {
                     string keyword = keywordNode.Value;
-                    if(string.IsNullOrEmpty(keyword))
+                    if(String.IsNullOrEmpty(keyword))
                         continue;
                     AddValueToListDictionary(bKeywordMap, keyword, topicId);
                 }
@@ -408,7 +408,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
 
         private XmlNamespaceManager namespaceMgr;
 
-        private string targetXPath = string.Empty;
+        private string targetXPath = String.Empty;
         private XPathExpression target = null;
         public XPathExpression GetTargetExpression(XPathNavigator targetDoc, string key)
         {

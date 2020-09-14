@@ -1,24 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{49720D17-40AD-4452-B60A-A5DEA226BA06}</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SandcastleBuilder.PlugIns</RootNamespace>
     <AssemblyName>SandcastleBuilder.PlugIns</AssemblyName>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\SandcastleTools.snk</AssemblyOriginatorKeyFile>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -34,216 +22,145 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>..\..\Deploy\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\Deploy\SandcastleBuilder.PlugIns.xml</DocumentationFile>
     <CodeAnalysisRuleSet>..\SandcastleTools.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>..\..\Deploy\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\Deploy\SandcastleBuilder.PlugIns.xml</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Build.15.1.548\lib\net46\Microsoft.Build.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Build.Framework.15.1.548\lib\net46\Microsoft.Build.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Setup.Configuration.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.1.16.30\lib\net35\Microsoft.VisualStudio.Setup.Configuration.Interop.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SandcastleBuilderUtils\Properties\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="AdditionalContentOnlyPlugIn.cs" />
-    <Compile Include="AdditionalReferenceLinksConfigDlg.cs">
+    <Compile Update="AdditionalReferenceLinksConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdditionalReferenceLinksConfigDlg.Designer.cs">
+    <Compile Update="AdditionalReferenceLinksConfigDlg.Designer.cs">
       <DependentUpon>AdditionalReferenceLinksConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdditionalReferenceLinksPlugIn.cs" />
-    <Compile Include="AjaxDocConfigDlg.cs">
+    <Compile Update="AjaxDocConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjaxDocConfigDlg.Designer.cs">
+    <Compile Update="AjaxDocConfigDlg.Designer.cs">
       <DependentUpon>AjaxDocConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjaxDocPlugIn.cs" />
-    <Compile Include="BibliographySupportConfigDlg.cs">
+    <Compile Update="BibliographySupportConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BibliographySupportConfigDlg.Designer.cs">
+    <Compile Update="BibliographySupportConfigDlg.Designer.cs">
       <DependentUpon>BibliographySupportConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="BibliographySupportPlugIn.cs" />
-    <Compile Include="BindingRedirectResolverConfigDlg.cs">
+    <Compile Update="BindingRedirectResolverConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BindingRedirectResolverConfigDlg.Designer.cs">
+    <Compile Update="BindingRedirectResolverConfigDlg.Designer.cs">
       <DependentUpon>BindingRedirectResolverConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="BindingRedirectResolverPlugIn.cs" />
-    <Compile Include="BindingRedirectSettings.cs" />
-    <Compile Include="BindingRedirectSettingsCollection.cs" />
-    <Compile Include="CompletionNotificationConfigDlg.cs">
+    <Compile Update="CompletionNotificationConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompletionNotificationConfigDlg.Designer.cs">
+    <Compile Update="CompletionNotificationConfigDlg.Designer.cs">
       <DependentUpon>CompletionNotificationConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompletionNotificationPlugIn.cs" />
-    <Compile Include="DbcsFixConfigDlg.cs">
+    <Compile Update="DbcsFixConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DbcsFixConfigDlg.Designer.cs">
+    <Compile Update="DbcsFixConfigDlg.Designer.cs">
       <DependentUpon>DbcsFixConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="DbcsFixPlugIn.cs" />
-    <Compile Include="DeploymentConfigUserControl.cs">
+    <Compile Update="DeploymentConfigUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeploymentConfigUserControl.Designer.cs">
+    <Compile Update="DeploymentConfigUserControl.Designer.cs">
       <DependentUpon>DeploymentConfigUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocumentedEntitiesOnlyPlugIn.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IntelliSenseOnlyPlugIn.cs" />
-    <Compile Include="LightweightWebsiteStylePlugIn.cs" />
-    <Compile Include="ManualVisibilityApiFilterPlugIn.cs" />
-    <Compile Include="MemberIDFixUpPlugIn.cs" />
-    <Compile Include="MemberIDFixUpPlugInConfigDlg.cs">
+    <Compile Update="MemberIDFixUpPlugInConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberIDFixUpPlugInConfigDlg.Designer.cs">
+    <Compile Update="MemberIDFixUpPlugInConfigDlg.Designer.cs">
       <DependentUpon>MemberIDFixUpPlugInConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemberIdMatchExpression.cs" />
-    <Compile Include="ReferenceLinkSettings.cs" />
-    <Compile Include="ReferenceLinkSettingsCollection.cs" />
-    <Compile Include="ScriptSharpPlugIn.cs" />
-    <Compile Include="TocExcludePlugIn.cs" />
-    <Compile Include="VersionBuilderConfigDlg.cs">
+    <Compile Update="VersionBuilderConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VersionBuilderConfigDlg.Designer.cs">
+    <Compile Update="VersionBuilderConfigDlg.Designer.cs">
       <DependentUpon>VersionBuilderConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeploymentConfigDlg.cs">
+    <Compile Update="DeploymentConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeploymentConfigDlg.Designer.cs">
+    <Compile Update="DeploymentConfigDlg.Designer.cs">
       <DependentUpon>DeploymentConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeploymentLocation.cs" />
-    <Compile Include="DeploymentPlugIn.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProxyCredentials.cs" />
-    <Compile Include="UserCredentials.cs" />
-    <Compile Include="VersionBuilderPlugIn.cs" />
-    <Compile Include="VersionSettings.cs" />
-    <Compile Include="VersionSettingsCollection.cs" />
-    <Compile Include="WildcardReferencesConfigDlg.cs">
+    <Compile Update="WildcardReferencesConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WildcardReferencesConfigDlg.Designer.cs">
+    <Compile Update="WildcardReferencesConfigDlg.Designer.cs">
       <DependentUpon>WildcardReferencesConfigDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="WildcardReferenceSettings.cs" />
-    <Compile Include="WildcardReferenceSettingsCollection.cs" />
-    <Compile Include="WildcardReferencesPlugIn.cs" />
-    <Compile Include="XPathReflectionFileFilterPlugin.cs" />
-    <Compile Include="XPathReflectionFileFilterConfigDlg.cs">
+    <Compile Update="XPathReflectionFileFilterConfigDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XPathReflectionFileFilterConfigDlg.Designer.cs">
+    <Compile Update="XPathReflectionFileFilterConfigDlg.Designer.cs">
       <DependentUpon>XPathReflectionFileFilterConfigDlg.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SandcastleBuilderUtils\SandcastleBuilderUtils.csproj">
-      <Project>{330DADF7-3AB1-49A0-B3C6-A69D2C4F06A6}</Project>
-      <Name>SandcastleBuilderUtils</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj">
-      <Project>{399E78F8-4954-409E-991A-37DA9D0579CC}</Project>
-      <Name>Sandcastle.Core</Name>
-      <Private>False</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\SandcastleBuilderUtils\SandcastleBuilderUtils.csproj" />
+    <ProjectReference Include="..\SandcastleCore\Sandcastle.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AdditionalReferenceLinksConfigDlg.resx">
+    <EmbeddedResource Update="AdditionalReferenceLinksConfigDlg.resx">
       <DependentUpon>AdditionalReferenceLinksConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjaxDocConfigDlg.resx">
+    <EmbeddedResource Update="AjaxDocConfigDlg.resx">
       <DependentUpon>AjaxDocConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BibliographySupportConfigDlg.resx">
+    <EmbeddedResource Update="BibliographySupportConfigDlg.resx">
       <DependentUpon>BibliographySupportConfigDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BindingRedirectResolverConfigDlg.resx">
+    <EmbeddedResource Update="BindingRedirectResolverConfigDlg.resx">
       <DependentUpon>BindingRedirectResolverConfigDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompletionNotificationConfigDlg.resx">
+    <EmbeddedResource Update="CompletionNotificationConfigDlg.resx">
       <DependentUpon>CompletionNotificationConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DbcsFixConfigDlg.resx">
+    <EmbeddedResource Update="DbcsFixConfigDlg.resx">
       <DependentUpon>DbcsFixConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeploymentConfigUserControl.resx">
+    <EmbeddedResource Update="DeploymentConfigUserControl.resx">
       <DependentUpon>DeploymentConfigUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberIDFixUpPlugInConfigDlg.resx">
+    <EmbeddedResource Update="MemberIDFixUpPlugInConfigDlg.resx">
       <DependentUpon>MemberIDFixUpPlugInConfigDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VersionBuilderConfigDlg.resx">
+    <EmbeddedResource Update="VersionBuilderConfigDlg.resx">
       <DependentUpon>VersionBuilderConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeploymentConfigDlg.resx">
+    <EmbeddedResource Update="DeploymentConfigDlg.resx">
       <DependentUpon>DeploymentConfigDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="WildcardReferencesConfigDlg.resx">
+    <EmbeddedResource Update="WildcardReferencesConfigDlg.resx">
       <DependentUpon>WildcardReferencesConfigDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XPathReflectionFileFilterConfigDlg.resx">
+    <EmbeddedResource Update="XPathReflectionFileFilterConfigDlg.resx">
       <DependentUpon>XPathReflectionFileFilterConfigDlg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -265,18 +182,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build" Version="15.1.548" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.548" />
+    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="1.16.30" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.5.24" />
+  </ItemGroup>
+  <PropertyGroup />
 </Project>

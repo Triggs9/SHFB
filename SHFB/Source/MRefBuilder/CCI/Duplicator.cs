@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -941,7 +941,7 @@ namespace System.Compiler
                 //^ assert this.TargetModule.ModuleReferences != null;
                 ModuleReference modRef = this.TargetModule.ModuleReferences[i];
                 if (modRef == null) continue;
-                if (string.Compare(module.Name, modRef.Name, true, System.Globalization.CultureInfo.InvariantCulture) != 0) continue;
+                if (String.Compare(module.Name, modRef.Name, true, System.Globalization.CultureInfo.InvariantCulture) != 0) continue;
                 this.DuplicateFor[module.UniqueKey] = modRef.Module; return modRef.Module;
             }
             if (this.TargetModule.ModuleReferences == null)

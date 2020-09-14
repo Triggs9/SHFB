@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -157,7 +157,7 @@ namespace Microsoft.Ddue.Tools
             // get the list of excluded ancestor classes
             foreach(XPathNavigator excludedClass in configuration.Select("xamlExcludedAncestors/class"))
             {
-                string apiId = excludedClass.GetAttribute("api", string.Empty);
+                string apiId = excludedClass.GetAttribute("api", String.Empty);
                 if(apiId.Length > 0 && !excludedAncestorList.Contains(apiId))
                     excludedAncestorList.Add(apiId);
             }
@@ -165,8 +165,8 @@ namespace Microsoft.Ddue.Tools
             // get the list of XAML assemblies; members in other assemblies get no xaml syntax, just 'not applicable' boilerplate
             foreach(XPathNavigator xamlAssembly in configuration.Select("xamlAssemblies/assembly"))
             {
-                string assemblyName = xamlAssembly.GetAttribute("name", string.Empty);
-                if(string.IsNullOrEmpty(assemblyName))
+                string assemblyName = xamlAssembly.GetAttribute("name", String.Empty);
+                if(String.IsNullOrEmpty(assemblyName))
                     continue; // should emit warning message
 
                 Dictionary<string, List<string>> clrNamespaces;
@@ -178,14 +178,14 @@ namespace Microsoft.Ddue.Tools
 
                 foreach(XPathNavigator xmlnsNode in xamlAssembly.Select("xmlns[@uri][clrNamespace]"))
                 {
-                    string xmlnsUri = xmlnsNode.GetAttribute("uri", string.Empty);
-                    if(string.IsNullOrEmpty(xmlnsUri))
+                    string xmlnsUri = xmlnsNode.GetAttribute("uri", String.Empty);
+                    if(String.IsNullOrEmpty(xmlnsUri))
                         continue; // should emit warning message
 
                     foreach(XPathNavigator clrNamespaceNode in xmlnsNode.Select("clrNamespace[@name]"))
                     {
-                        string namespaceName = clrNamespaceNode.GetAttribute("name", string.Empty);
-                        if(string.IsNullOrEmpty(namespaceName))
+                        string namespaceName = clrNamespaceNode.GetAttribute("name", String.Empty);
+                        if(String.IsNullOrEmpty(namespaceName))
                             continue; // should emit warning message
 
                         List<string> xmlnsUriList;
@@ -454,7 +454,7 @@ namespace Microsoft.Ddue.Tools
 
             XPathNavigator returnType = reflection.SelectSingleNode(apiReturnTypeExpression);
             bool notWriteableReturnType = (bool)returnType.Evaluate(noSettablePropertiesExpression);
-            string returnTypeId = returnType.GetAttribute("api", string.Empty);
+            string returnTypeId = returnType.GetAttribute("api", String.Empty);
             string returnTypeSubgroup = (string)returnType.Evaluate(apiSubgroupExpression);
             bool returnTypeIsAbstract = (bool)returnType.Evaluate(apiIsAbstractTypeExpression);
             bool returnTypeIsReadonlyStruct = (returnTypeSubgroup == "structure" && notWriteableReturnType &&
@@ -836,7 +836,7 @@ namespace Microsoft.Ddue.Tools
             XPathNavigator containingType = propertyReflection.SelectSingleNode(apiContainingTypeExpression);
             string containingTypeName = (string)containingType.Evaluate(apiNameExpression);
             string namespaceId = (string)propertyReflection.Evaluate(apiContainingNamespaceIdExpression);
-            string propertyId = string.Concat("P:", namespaceId.Substring(2), ".", string.Concat(containingTypeName, ".", propertyName));
+            string propertyId = String.Concat("P:", namespaceId.Substring(2), ".", String.Concat(containingTypeName, ".", propertyName));
             string contentPropertyId = (string)containingType.Evaluate(contentPropertyIdExpression);
             if(propertyId == contentPropertyId)
                 return true;
@@ -853,14 +853,14 @@ namespace Microsoft.Ddue.Tools
             XPathNodeIterator ancestors = (XPathNodeIterator)typeReflection.Evaluate(apiAncestorsExpression);
 
             // Check the type itself as well
-            string ancestorId = typeReflection.GetAttribute("api", string.Empty);
+            string ancestorId = typeReflection.GetAttribute("api", String.Empty);
 
             if(!String.IsNullOrWhiteSpace(ancestorId) && excludedAncestorList.Contains(ancestorId))
                 return true;
 
             foreach(XPathNavigator ancestor in ancestors)
             {
-                ancestorId = ancestor.GetAttribute("api", string.Empty);
+                ancestorId = ancestor.GetAttribute("api", String.Empty);
 
                 if(excludedAncestorList.Contains(ancestorId))
                     return true;
@@ -888,7 +888,7 @@ namespace Microsoft.Ddue.Tools
             XPathNavigator returnType = memberReflection.SelectSingleNode(apiReturnTypeExpression);
             if(returnType != null)
             {
-                string returnTypeId = returnType.GetAttribute("api", string.Empty);
+                string returnTypeId = returnType.GetAttribute("api", String.Empty);
 
                 if(IsPrimitiveType(returnTypeId))
                     return true;

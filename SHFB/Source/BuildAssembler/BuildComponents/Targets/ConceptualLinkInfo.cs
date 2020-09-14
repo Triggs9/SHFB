@@ -66,7 +66,7 @@ namespace Microsoft.Ddue.Tools.Targets
             if(node == null)
                 throw new ArgumentNullException("node");
 
-            target = node.GetAttribute("target", string.Empty);
+            target = node.GetAttribute("target", String.Empty);
 
             // EFW - Added support for an optional anchor name in the target
             pos = target.IndexOf('#');

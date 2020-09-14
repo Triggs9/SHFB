@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -500,14 +500,14 @@ namespace Sandcastle.Core.BuildAssembler.SyntaxGenerator
         {
             string getterId = (string)reflection.Evaluate(attachedPropertyGetterExpression);
             string setterId = (string)reflection.Evaluate(attachedPropertySetterExpression);
-            if(!string.IsNullOrEmpty(getterId))
+            if(!String.IsNullOrEmpty(getterId))
             {
                 writer.WriteString("See ");
                 writer.WriteReferenceLink(getterId);
             }
-            if(!string.IsNullOrEmpty(setterId))
+            if(!String.IsNullOrEmpty(setterId))
             {
-                if(!string.IsNullOrEmpty(getterId))
+                if(!String.IsNullOrEmpty(getterId))
                     writer.WriteString(", ");
                 writer.WriteReferenceLink(setterId);
             }
@@ -522,7 +522,7 @@ namespace Sandcastle.Core.BuildAssembler.SyntaxGenerator
         {
             string adderId = (string)reflection.Evaluate(attachedEventAdderExpression);
             string removerId = (string)reflection.Evaluate(attachedEventRemoverExpression);
-            if(!(string.IsNullOrEmpty(adderId) && string.IsNullOrEmpty(removerId)))
+            if(!(String.IsNullOrEmpty(adderId) && String.IsNullOrEmpty(removerId)))
             {
                 writer.WriteString("See ");
                 writer.WriteReferenceLink(adderId);

@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -75,7 +75,7 @@ namespace Microsoft.Ddue.Tools
 
             //System.Diagnostics.Debugger.Launch();
             string name = reflection.Evaluate(apiNameExpression).ToString();
-            InFunctionsClass = (string.Compare(name, "Functions", StringComparison.OrdinalIgnoreCase) == 0);
+            InFunctionsClass = (String.Compare(name, "Functions", StringComparison.OrdinalIgnoreCase) == 0);
             bool isAbstract = (bool)reflection.Evaluate(apiIsAbstractTypeExpression);
             bool isSealed = (bool)reflection.Evaluate(apiIsSealedTypeExpression);
             bool isSerializable = (bool)reflection.Evaluate(apiIsSerializableTypeExpression);

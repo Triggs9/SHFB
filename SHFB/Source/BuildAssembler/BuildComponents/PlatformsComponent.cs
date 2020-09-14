@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.
+// Copyright Â© Microsoft Corporation.
 // This source file is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx.
 // All other rights reserved.
@@ -212,7 +212,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                 bool included = false;
                 foreach (XPathNavigator versionNode in versionNodes)
                 {
-                    string versionId = versionNode.GetAttribute("name", string.Empty);
+                    string versionId = versionNode.GetAttribute("name", String.Empty);
                     VersionFilter filter;
                     if (filters.TryGetValue(versionId, out filter))
                     {
@@ -584,7 +584,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
                     bool alreadyFiltered = false;
                     foreach (OverloadFilter overloadFilter in overloadFilters)
                     {
-                        if (!string.IsNullOrEmpty(paramTypes) && paramTypes == overloadFilter.ParamTypes)
+                        if (!String.IsNullOrEmpty(paramTypes) && paramTypes == overloadFilter.ParamTypes)
                             alreadyFiltered = true;
                         if (alreadyFiltered && (overloadIncluded != overloadFilter.Included))
                         {
@@ -630,14 +630,14 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             foreach (XPathNavigator parameterNode in parameterNodes)
             {
                 i++;
-                paramNames.Append(parameterNode.GetAttribute("name", string.Empty));
+                paramNames.Append(parameterNode.GetAttribute("name", String.Empty));
                 if (i < parameterNodes.Count)
                     paramNames.Append(",");
 
                 // BUGBUG: code here and in the psx conversion transform is a quick hack; make it better
                 string arrayOf = (parameterNode.SelectSingleNode("arrayOf") == null) ? "" : "[]";
                 string typeName = (string)parameterNode.Evaluate(apiParameterTypeNameExpression);
-                if (string.IsNullOrEmpty(typeName))
+                if (String.IsNullOrEmpty(typeName))
                     typeName = (string)parameterNode.Evaluate(apiParameterTemplateNameExpression);
 
                 int basenameStart = typeName.LastIndexOf(':') + 1;
@@ -668,7 +668,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
         {
             //name = overloadReader.GetAttribute("name");
             string includeAttr = overloadReader.GetAttribute("include");
-            included = Convert.ToBoolean(string.IsNullOrEmpty(includeAttr) ? "true" : includeAttr,
+            included = Convert.ToBoolean(String.IsNullOrEmpty(includeAttr) ? "true" : includeAttr,
                 CultureInfo.InvariantCulture);
 
             overloadId = overloadReader.GetAttribute("api");

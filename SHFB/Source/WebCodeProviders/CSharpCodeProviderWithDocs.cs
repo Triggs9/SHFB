@@ -24,7 +24,6 @@
 // 1.1.0.0  02/03/2009  EFW  Added support for providerOptions
 //=============================================================================
 
-using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;

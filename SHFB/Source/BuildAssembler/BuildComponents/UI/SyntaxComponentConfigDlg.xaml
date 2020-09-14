@@ -1,12 +1,12 @@
-﻿<Window x:Class="Microsoft.Ddue.Tools.UI.SyntaxComponentConfigDlg"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window 
+	xmlns="https://github.com/avaloniaui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Microsoft.Ddue.Tools.UI.SyntaxComponentConfigDlg"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	mc:Ignorable="d" Width="800" Height="500" ResizeMode="NoResize" ShowInTaskbar="False"
+	mc:Ignorable="d" Width="800" Height="500" ShowInTaskbar="False"
 	Title="Syntax Component Configuration"
-	WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-	FocusManager.FocusedElement="{Binding ElementName=chkRenderReferenceLinks}">
+>
   <Grid Margin="10">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
@@ -31,14 +31,10 @@
         <ColumnDefinition />
         <ColumnDefinition Width="3*"/>
       </Grid.ColumnDefinitions>
-      <Label Grid.Row="0" Grid.Column="0" Content="_Syntax Generators"
-        Target="{Binding ElementName=lbGenerators}"/>
-      <Label Grid.Row="0" Grid.Column="1" Content="Edit _Configuration"
-        Target="{Binding ElementName=txtConfiguration}"/>
-      <ListBox Grid.Row="1" Grid.Column="0" Name="lbGenerators" Margin="0,0,3,3" DisplayMemberPath="Id"
-        SelectionChanged="lbGenerators_SelectionChanged" />
-      <TextBox Grid.Row="1" Grid.Column="1" Name="txtConfiguration" Margin="3,0,0,3"
-        AcceptsReturn="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="_Syntax Generators"/>
+      <TextBlock Grid.Row="0" Grid.Column="1" Text="Edit _Configuration"/>
+      <ListBox Grid.Row="1" Grid.Column="0" Name="lbGenerators" Margin="0,0,3,3" SelectionChanged="lbGenerators_SelectionChanged" />
+      <TextBox Grid.Row="1" Grid.Column="1" Name="txtConfiguration" Margin="3,0,0,3" AcceptsReturn="True"/>
       <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
         <Button Name="btnMoveUp" Margin="0,3,3,3" Padding="3" MinWidth="80" Content="_Up" Click="btnMoveUp_Click"  />
         <Button Name="btnMoveDown" Margin="3,3,0,3" Padding="3" MinWidth="80" Content="_Down" Click="btnMoveDown_Click"/>
@@ -52,9 +48,6 @@
         <Button Grid.Column="0" Name="btnReset" Margin="3,3,0,3" Padding="3" MinWidth="80" Content="R_eset"
           Click="btnReset_Click" />
         <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Hyperlink Name="lnkProjectSite" NavigateUri="https://GitHub.com/EWSoftware/SHFB"
-          RequestNavigate="lnkProjectSite_RequestNavigate" ToolTip="https://GitHub.com/EWSoftware/SHFB">Sandcastle
-Help File Builder</Hyperlink>
         </TextBlock>
         <StackPanel Grid.Column="2" Orientation="Horizontal">
           <Button Name="btnOK" Margin="0,3,3,3" Padding="3" MinWidth="80" Content="OK" Click="btnOK_Click"  />

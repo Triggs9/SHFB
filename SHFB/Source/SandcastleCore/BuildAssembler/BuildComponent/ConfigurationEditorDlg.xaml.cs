@@ -23,6 +23,8 @@
 
 using System.Windows;
 using System.Xml;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
 
 namespace Sandcastle.Core.BuildAssembler.BuildComponent
 {
