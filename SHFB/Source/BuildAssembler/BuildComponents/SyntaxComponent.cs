@@ -91,7 +91,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             {
                 var dlg = new SyntaxComponentConfigDlg(currentConfiguration, container);
 
-                if(dlg.ShowModalDialog() ?? false)
+                if(dlg.ShowModalDialogAsync() ?? false)
                     currentConfiguration = dlg.Configuration;
 
                 return currentConfiguration;

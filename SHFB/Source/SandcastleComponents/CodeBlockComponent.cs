@@ -230,7 +230,7 @@ namespace SandcastleBuilder.Components
             {
                 var dlg = new CodeBlockConfigDlg(currentConfiguration);
 
-                if(dlg.ShowModalDialog() ?? false)
+                if(dlg.ShowModalDialogAsync() ?? false)
                     currentConfiguration = dlg.Configuration;
 
                 return currentConfiguration;

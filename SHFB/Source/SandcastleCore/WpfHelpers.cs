@@ -19,6 +19,7 @@
 //===============================================================================================================
 
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using Avalonia;
@@ -48,12 +49,12 @@ namespace Sandcastle.Core
         /// <returns>The <c>ShowDialog()</c> result from the window</returns>
         /// <remarks>By using the main window as the owner, the form appears over the main window regardless of
         /// which monitor it may be on.</remarks>
-        public static bool? ShowModalDialog(this Window dialog)
+        public static async Task ShowModalDialogAsync(this Window dialog)
         {
-            if(MainWindowHandle != IntPtr.Zero)
-                new WindowInteropHelper(dialog) { Owner = MainWindowHandle };
-
-            return dialog.ShowDialog();
+            //if(MainWindowHandle != IntPtr.Zero)
+            //    new WindowInteropHelper(dialog) { Owner = MainWindowHandle };
+            
+            await dialog.ShowDialog(dialog);
         }
 
         /// <summary>
@@ -67,16 +68,16 @@ namespace Sandcastle.Core
         {
             if(isValid)
             {
-                control.ClearValue(Control.BorderBrushProperty);
-                control.ClearValue(Control.BorderThicknessProperty);
+                //control.ClearValue(Control.BorderBrushProperty);
+                //control.ClearValue(Control.BorderThicknessProperty);
             }
             else
             {
-                control.BorderBrush = Brushes.Red;
-                control.BorderThickness = new Thickness(1.25);
+                //control.BorderBrush = Brushes.Red;
+                //control.BorderThickness = new Thickness(1.25);
             }
 
-            control.ToolTip = tooltip;
+            //control.ToolTip = tooltip;
         }
         #endregion
     }

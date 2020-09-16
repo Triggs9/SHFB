@@ -104,7 +104,7 @@ namespace Microsoft.Ddue.Tools.BuildComponent
             {
                 IntelliSenseConfigDlg dlg = new IntelliSenseConfigDlg(currentConfiguration);
                 
-                if(dlg.ShowModalDialog() ?? false)
+                if(dlg.ShowModalDialogAsync() ?? false)
                     currentConfiguration = dlg.Configuration;
 
                 return currentConfiguration;

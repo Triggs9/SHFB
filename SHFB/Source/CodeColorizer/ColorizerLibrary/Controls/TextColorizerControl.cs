@@ -19,13 +19,12 @@
 
 using System;
 using System.ComponentModel;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using ColorizerLibrary;
 
 namespace ColorizerLibrary.Controls
 {
+    /*
 	/// <summary>
 	/// A syntax colorizing control
 	/// </summary>
@@ -95,4 +94,5 @@ namespace ColorizerLibrary.Controls
                 }
 		}
 	}
+	*/
 }

@@ -21,7 +21,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -30,6 +29,8 @@ using System.Xml;
 using System.Xml.XPath;
 
 using Sandcastle.Core.BuildAssembler;
+
+using Microsoft.Data.Sqlite;
 
 using Microsoft.Ddue.Tools;
 using Microsoft.Ddue.Tools.BuildComponent;
@@ -306,8 +307,7 @@ namespace SandcastleBuilder.Components.Commands
                             return;
 
                         base.Component.WriteMessage(MessageLevel.Info, "Indexing targets in {0}", file);
-
-                        using(SqlConnection cn = new SqlConnection(connectionString))
+                        using(SqliteConnection cn = new SqliteConnection(connectionString))
                         using(SqlCommand cmdSearch = new SqlCommand())
                         using(SqlCommand cmdAdd = new SqlCommand())
                         {

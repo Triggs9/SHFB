@@ -117,8 +117,11 @@ namespace Sandcastle.Core.BuildAssembler.BuildComponent
         {
             var dlg = new ConfigurationEditorDlg() { Configuration = currentConfiguration };
 
-            if(dlg.ShowModalDialog() ?? false)
-                currentConfiguration = dlg.Configuration;
+            dlg.ShowModalDialogAsync();
+            currentConfiguration = dlg.Configuration;
+            //if(dlg.ShowModalDialogAsync() ?? false)
+            //    currentConfiguration = dlg.Configuration;
+                
 
             return currentConfiguration;
         }
