@@ -78,7 +78,6 @@
     <Resource Include="Resources\ConfigurationEditor.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.9.11" />
     <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
